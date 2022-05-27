@@ -2,21 +2,17 @@
 
 
 import requests
-from flask import jsonify
-
+import yaml
 
 #api url to get
 APIURL = "http://127.0.0.1:2224/api"
 
-
+#retrieves the data from the api
 houseWives = requests.get(APIURL)
-houseWives = jsonify(houseWives)
 
+#gets the requested data in JSON format
+houseWives = houseWives.json()
 
-print(houseWives);
-
-
-
-#send a GET request to your Flask JSON API and returns legal JSON.
-
-#take the returned JSON and "normalize" it into a format that is easy for users to understand.
+#normalizes the JSON into yaml
+yamlString = yaml.dump(houseWives)
+print(yamlString)

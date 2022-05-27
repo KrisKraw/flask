@@ -9,14 +9,13 @@
     <body>
         <h2 style="color:purple;">Real Housewives of New Jersey Cast Members</h2>
         {% for houseWife in houseWives %}
-            <div style="width:1000px;height:200px;border-style: dotted;"> 
-                <div style="width:200px;height:200px;float:left;object-fit:fill;border-style:dotted;"><img width=200 src="{{houseWife.get('photoUrl')}}" /></div>
-                <div style="width:800px;height:200px;padding:50px;border-style:dotted;">
+            <div style="width:1000px;height:200px;"> 
+                <div style="width:200px;height:200px;float:left;object-fit:fill;"><img height=200 width=200 src="{{houseWife.get('photoUrl')}}" /></div>
+                <div style="width:800px;height:200px;padding:50px;">
                     {{houseWife.get('name')}} is a {{houseWife.get('age')}} year old Real Housewives of NJ cast member.
                     he has {{houseWife.get('numofchildren')}} children and lives in {{houseWife.get('hometown')}}, NJ with her {{houseWife.get('spousestatus')}}, {{houseWife.get('spouse')}}.
                 </div>
             </div>
-        <div>asasas   </div>
         {% endfor %}
 
     </body>
