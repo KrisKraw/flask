@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> RHONJ - {{name}} biography</title>
+    <title> RHONJ Biographies</title>
 </head>
-<body>
-    <img />{{name}} is a {{name}} year old Real Housewives of NJ cast member. She has {{name}} children and livews in {{name}} with her {{name}}, {{name}}.
-</body>
+    <body>
+        <h2 style="color:purple;">Real Housewives of New Jersey Cast Members</h2>
+        {% for houseWife in houseWives %}
+            <div style="width:1000px;height:200px;border-style: dotted;"> 
+                <div style="width:200px;height:200px;float:left;object-fit:fill;border-style:dotted;"><img width=200 src="{{houseWife.get('photoUrl')}}" /></div>
+                <div style="width:800px;height:200px;padding:50px;border-style:dotted;">
+                    {{houseWife.get('name')}} is a {{houseWife.get('age')}} year old Real Housewives of NJ cast member.
+                    he has {{houseWife.get('numofchildren')}} children and lives in {{houseWife.get('hometown')}}, NJ with her {{houseWife.get('spousestatus')}}, {{houseWife.get('spouse')}}.
+                </div>
+            </div>
+        <div>asasas   </div>
+        {% endfor %}
+
+    </body>
 </html>

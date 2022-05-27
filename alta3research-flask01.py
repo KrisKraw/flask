@@ -1,70 +1,78 @@
 #!/usr/bin/env python3
 
+from flask import Flask
+from flask import render_template
+from flask import jsonify
+
 
 houseWives = [
                 {'name' : 'Teresa Giudice',
                   'spouse' : 'Luis Ruelas',
                   'spousestatus' : 'fiance',
-                  'photo' : 'https://i.insider.com/625734a61ab4020019279e04?width=1000&format=jpeg&auto=webp',
+                  'photoUrl' : 'https://i.insider.com/625734a61ab4020019279e04?width=1000&format=jpeg&auto=webp',
                   'hometown' : 'Montville',
-                  'dob' : '10/14/1967',
+                  'age' : '10/14/1967',
                   'numofchildren' : '4',
                 },
                 {'name' : 'Melissa Gorga',
                   'spouse' : '',
                   'spousestatus' : '',
-                  'photo' : '',
+                  'photoUrl' : '',
                   'hometown' : '',
-                  'dob' : '',
+                  'age' : '',
                   'numofchildren' : '',
                 },
                 {'name' : 'Jennifer Aydin',
                   'spouse' : '',
                   'spousestatus' : '',
-                  'photo' : '',
+                  'photoUrl' : '',
                   'hometown' : '',
-                  'dob' : '',
+                  'age' : '',
                   'numofchildren' : '',
                 },
                 {'name' : 'Jackie Goldschneider',
                   'spouse' : '',
                   'spousestatus' : '',
-                  'photo' : '',
+                  'photoUrl' : '',
                   'hometown' : '',
-                  'dob' : '',
+                  'age' : '',
                   'numofchildren' : '',
                 },
                 {'name' : 'Dolores Catania',
                   'spouse' : '',
                   'spousestatus' : '',
-                  'photo' : '',
+                  'photoUrl' : '',
                   'hometown' : '',
-                  'dob' : '',
+                  'age' : '',
                   'numofchildren' : '',
                 },
                 {'spouse' : 'Luis Ruelas',
                   'spouse' : '',
                   'spousestatus' : '',
-                  'photo' : '',
+                  'photoUrl' : '',
                   'hometown' : '',
-                  'dob' : '',
+                  'age' : '',
                   'numofchildren' : '',
                 }
             ]
 
 
+app = Flask(__name__)
+
+
 #a webpage with biographies of the current RHONJ housewives
 @app.route("/")
-def start():
-    return render_housewifes("housewives.html")
+def webpage():
+    return render_template("housewives.html", houseWives = houseWives)
+
 
 #an api that returns all of the RHONJ data in JSON format
-#//https://jsonlint.com/
+#data validated with https://jsonlint.com/
 @app.route("/api")
 def api():
-    return f"your answer was correct !"
+    data = jsonify(houseWives)
+    return data
 
 
 if __name__ == "__main__":
-   app.run(host="0.0.0.0", port=2224) # runs the application
-   # app.run(host="0.0.0.0", port=2224, debug=True) # DEBUG MODE
+    app.run(host="0.0.0.0", port=2224) # runs the application
